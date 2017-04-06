@@ -50,17 +50,5 @@ namespace CheckoutSystem.Tests
             co.Remove(a);
             Assert.IsFalse(co.GetBasket().ContainsKey(a));
         }
-
-        [TestMethod()]
-        public void TotalTest()
-        {
-            Item a = new Item("A", 50);
-            Item b = new Item("B", 30, 2, 45);
-            CheckOut co = new CheckOut();
-            co.Scan(a);
-            co.Scan(b);
-            co.Scan(b);
-            Assert.AreEqual(co.Total(), 95);
-        }
     }
 }

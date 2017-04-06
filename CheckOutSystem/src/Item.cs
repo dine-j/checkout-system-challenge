@@ -4,61 +4,38 @@ namespace CheckoutSystem
 {
     public class Item : IEquatable<Item>
     {
-        String name;
-        double price;
-        int thresholdDiscount;
-        double discountedPrice;
+        private String SKU;
+        private double price;
 
         /// <summary>
         /// Constructor for item priced individually
         /// </summary>
-        /// <param name="name">Name of the item</param>
+        /// <param name="SKU">Name of the item</param>
         /// <param name="price">Price of the item</param>
-        public Item(String name, double price)
+        public Item(String SKU, double price)
         {
-            this.name = name;
+            this.SKU = SKU;
             this.price = price;
         }
 
-        /// <summary>
-        /// Constructor for multi-priced item
-        /// </summary>
-        /// <param name="name">Name of the item</param>
-        /// <param name="price">Price of the item</param>
-        /// <param name="thresholdDiscount">Number of required item to activate the discount</param>
-        /// <param name="discountedPrice">Price for given number of items</param>
-        public Item(String name, double price, int thresholdDiscount, double discountedPrice)
+        public String GetSKU()
         {
-            this.name = name;
-            this.price = price;
-            this.thresholdDiscount = thresholdDiscount;
-            this.discountedPrice = discountedPrice;
+            return SKU;
         }
-
-        /// <summary>
-        /// Get total price for this item given a quantity
-        /// </summary>
-        /// <param name="quantity">Quantity needed</param>
-        /// <returns>Total price for the item</returns>
-        public double GetTotal(int quantity)
+        
+        public double GetPrice()
         {
-            if(thresholdDiscount != 0)
-            {
-                int discountCoefficient = quantity / thresholdDiscount;
-                quantity -= thresholdDiscount * discountCoefficient;
-                return price * quantity + discountCoefficient * discountedPrice;
-            }
-            return price * quantity;
+            return price;
         }
 
         public bool Equals(Item other)
         {
-            return !ReferenceEquals(null, other) && name.Equals(other.name);
+            return !ReferenceEquals(null, other) && SKU.Equals(other.SKU);
         }
 
         public override int GetHashCode()
         {
-            return name.GetHashCode();
+            return SKU.GetHashCode();
         }
     }
 }
