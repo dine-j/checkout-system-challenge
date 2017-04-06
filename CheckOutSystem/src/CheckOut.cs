@@ -5,15 +5,15 @@ namespace CheckoutSystem
     public class CheckOut
     {
         Dictionary<Item, int> basket;
-        double totalPrice;
+        double total;
 
         public CheckOut()
         {
             basket = new Dictionary<Item, int>();
-            totalPrice = 0;
+            total = 0;
         }
 
-        public void scan(Item item)
+        public void Scan(Item item)
         {
             if(basket.ContainsKey(item))
             {
@@ -25,14 +25,14 @@ namespace CheckoutSystem
             }
         }
 
-        public void remove(Item item)
+        public void Remove(Item item)
         {
 
         }
 
-        public double total()
+        public double Total()
         {
-            return totalPrice;
+            return total;
         }
     }
 }
