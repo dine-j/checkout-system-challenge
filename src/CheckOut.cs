@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace CheckoutSystem
 {
-    class CheckOut
+    public class CheckOut
     {
         Dictionary<Item, int> basket;
         double totalPrice;
 
-        CheckOut()
+        public CheckOut()
         {
             basket = new Dictionary<Item, int>();
             totalPrice = 0;
         }
 
-        void scan(Item item)
+        public void scan(Item item)
         {
             if(basket.ContainsKey(item))
             {
@@ -29,12 +29,12 @@ namespace CheckoutSystem
             }
         }
 
-        void remove(Item item)
+        public void remove(Item item)
         {
 
         }
 
-        double total()
+        public double total()
         {
             return totalPrice;
         }

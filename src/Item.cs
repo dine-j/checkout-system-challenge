@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CheckoutSystem
 {
-    class Item : IEquatable<Item>
+    public class Item : IEquatable<Item>
     {
         String name;
         double price;
