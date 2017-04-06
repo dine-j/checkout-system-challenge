@@ -51,8 +51,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="src\CheckOutTests.cs" />
+    <Compile Include="src\ItemTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CheckOutSystem\CheckOutSystem.csproj">
+      <Project>{DF48966B-4717-4A4D-ABF4-BCFA08887D3F}</Project>
+      <Name>CheckOutSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

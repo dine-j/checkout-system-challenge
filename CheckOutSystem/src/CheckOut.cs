@@ -27,12 +27,27 @@ namespace CheckoutSystem
 
         public void Remove(Item item)
         {
-
+            if (basket.ContainsKey(item))
+            {
+               if(basket[item] > 1)
+                {
+                    --basket[item];
+                }
+               else
+                {
+                    basket.Remove(item);
+                }
+            }
         }
 
         public double Total()
         {
             return total;
+        }
+
+        public Dictionary<Item, int> GetBasket()
+        {
+            return basket;
         }
     }
 }

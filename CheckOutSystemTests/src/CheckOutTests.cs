@@ -12,15 +12,43 @@ namespace CheckoutSystem.Tests
     public class CheckOutTests
     {
         [TestMethod()]
-        public void scanNewItemTest()
+        public void ScanNewItemTest()
         {
-            Assert.Fail();
+            CheckOut co = new CheckOut();
+            Item a = new Item("A", 50);
+            co.Scan(a);
+            Assert.AreEqual(co.GetBasket()[a], 1);
         }
 
         [TestMethod()]
-        public void scanExistingItemTest()
+        public void ScanExistingItemTest()
         {
-            Assert.Fail();
+            CheckOut co = new CheckOut();
+            Item a = new Item("A", 50);
+            co.Scan(a);
+            co.Scan(a);
+            Assert.AreEqual(co.GetBasket()[a], 2);
+        }
+
+        [TestMethod()]
+        public void RemoveTest1()
+        {
+            CheckOut co = new CheckOut();
+            Item a = new Item("A", 50);
+            co.Scan(a);
+            co.Scan(a);
+            co.Remove(a);
+            Assert.AreEqual(co.GetBasket()[a], 1);
+        }
+
+        [TestMethod()]
+        public void RemoveTest2()
+        {
+            CheckOut co = new CheckOut();
+            Item a = new Item("A", 50);
+            co.Scan(a);
+            co.Remove(a);
+            Assert.IsFalse(co.GetBasket().ContainsKey(a));
         }
     }
 }
