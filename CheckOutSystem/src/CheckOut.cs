@@ -5,12 +5,10 @@ namespace CheckoutSystem
     public class CheckOut
     {
         Dictionary<Item, int> basket;
-        double total;
 
         public CheckOut()
         {
             basket = new Dictionary<Item, int>();
-            total = 0;
         }
 
         public void Scan(Item item)
@@ -42,6 +40,11 @@ namespace CheckoutSystem
 
         public double Total()
         {
+            double total = 0;
+            foreach(Item item in basket.Keys)
+            {
+                total += item.GetTotal(basket[item]);
+            }
             return total;
         }
 
