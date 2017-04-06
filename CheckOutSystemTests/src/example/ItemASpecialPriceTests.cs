@@ -1,9 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CheckOutSystemTests.src;
-using System;
 using System.Collections.Generic;
-using CheckOutSystem.src;
 using CheckoutSystem;
+using CheckOutSystem.src;
+using CheckOutSystem.src.example;
 
 namespace CheckOutSystemTests.src.Tests
 {
@@ -37,6 +36,20 @@ namespace CheckOutSystemTests.src.Tests
             co.Scan(a);
             co.Scan(a);
             Assert.AreEqual(co.Total(), 260);
+        }
+
+        [TestMethod()]
+        public void ApplyRuleTest3()
+        {
+            List<PricingRule> rules = new List<PricingRule>();
+            rules.Add(new ItemASpecialPrice());
+            CheckOut co = new CheckOut(rules);
+            Item a = new Item("A", 50);
+            co.Scan(a);
+            co.Scan(a);
+            co.Scan(a);
+            co.Scan(a);
+            Assert.AreEqual(co.Total(), 180);
         }
     }
 }

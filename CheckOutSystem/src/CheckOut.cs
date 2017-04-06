@@ -14,6 +14,9 @@ namespace CheckoutSystem
             this.pricingRules = pricingRules;
         }
 
+        /// <summary>
+        /// Constructor without pricing rules for easier testing
+        /// </summary>
         public CheckOut()
         {
             basket = new Dictionary<Item, int>();
@@ -65,9 +68,13 @@ namespace CheckoutSystem
             {
                 total += item.GetPrice() * basket[item];
             }
-            foreach(PricingRule rule in pricingRules)
+            if(pricingRules != null)
             {
-                total -= rule.ApplyRule(basket);
+                foreach (PricingRule rule in pricingRules)
+                {
+                    double discount = rule.ApplyRule(basket);
+                    total -= discount;
+                }
             }
             return total;
         }

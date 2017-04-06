@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\CheckOutTests.cs" />
     <Compile Include="src\example\ItemASpecialPriceTests.cs" />
+    <Compile Include="src\example\ItemBSpecialPriceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CheckOutSystem\CheckOutSystem.csproj">
