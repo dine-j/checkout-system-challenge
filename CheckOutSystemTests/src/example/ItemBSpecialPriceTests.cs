@@ -1,9 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CheckOutSystem.src.example;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using CheckoutSystem;
 
 namespace CheckOutSystem.src.example.Tests

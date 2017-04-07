@@ -48,7 +48,6 @@
     <Compile Include="src\example\ItemBSpecialPrice.cs" />
     <Compile Include="src\Item.cs" />
     <Compile Include="src\PricingRule.cs" />
-    <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

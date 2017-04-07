@@ -8,9 +8,9 @@ namespace CheckoutSystem
         private double price;
 
         /// <summary>
-        /// Constructor for item priced individually
+        /// Constructor of Item
         /// </summary>
-        /// <param name="SKU">Name of the item</param>
+        /// <param name="SKU">SKU of the item</param>
         /// <param name="price">Price of the item</param>
         public Item(String SKU, double price)
         {
